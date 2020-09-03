@@ -16,8 +16,8 @@ pub struct Options {
     input: path::PathBuf,
 }
 
-pub fn run(options: Options) {
-    println!("{:?}", options);
+pub fn run(options: Options, mut output: impl std::io::Write) -> Result<(), std::io::Error> {
+    writeln!(output, "{:?}", options)
 }
 
 #[cfg(test)]

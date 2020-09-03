@@ -8,8 +8,9 @@ pub struct Cmdline {
     options: besmlib::Options,
 }
 
-pub fn main() {
+pub fn main() -> Result<(), std::io::Error> {
     let options = Cmdline::from_args().options;
 
-    besmlib::run(options);
+    let _result = besmlib::run(options, &mut std::io::stdout())?;
+    Ok(())
 }
